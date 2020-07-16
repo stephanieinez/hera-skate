@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: hsla(0, 0%, 0%, 0.8);
+  font-family: georgia, serif;
+  font-weight: normal;
+  word-wrap: break-word;
+  font-kerning: normal;
+}
+
+a {
+  font-family: "PT Mono", monospace;
+  text-decoration: none;
+  color: black;
+}
+
+p {
+  font-family: "PT Mono", monospace;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "PT Mono", monospace;
+}

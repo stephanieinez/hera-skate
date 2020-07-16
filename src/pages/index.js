@@ -1,22 +1,43 @@
 import React from "react"
-import { Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
+import Layout from "../components/Layout"
+import PosterBoard from "../components/PosterBoard"
+import SpecialEvent from "../components/SpecialEvent"
+import Flower from '../components/Flower'
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
-)
+const IndexPage = () => {
+  const homepageData = useStaticQuery(graphql`
+    query {
+      hera {
+        homepageImages {
+          image {
+            url
+          }
+        }
+        homepageSpecialEvents {
+          specialImage {
+            url
+          }
+          specialEventUrl
+        }
+      }
+    }
+  `)
+
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <PosterBoard images={homepageData.hera.homepageImages} />
+      {
+        homepageData.hera.homepageSpecialEvents.length ?
+          <SpecialEvent image={homepageData.hera.homepageSpecialEvents[0].specialImage.url} url={homepageData.hera.homepageSpecialEvents[0].specialEventUrl} /> : null
+      }
+      <Flower bottom large />
+      <Flower right top />
+    </Layout>
+  )
+}
 
 export default IndexPage
