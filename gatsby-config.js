@@ -35,5 +35,8 @@ module.exports = {
         url: "https://api-eu-central-1.graphcms.com/v2/ckceqlkco2qmg01xmc1jb1s5t/master"
       },
     },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+    },
   ],
 }
