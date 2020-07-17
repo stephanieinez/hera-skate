@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Hera Skate`,
@@ -32,7 +36,7 @@ module.exports = {
       options: {
         typeName: "HERA",
         fieldName: "hera",
-        url: "https://api-eu-central-1.graphcms.com/v2/ckceqlkco2qmg01xmc1jb1s5t/master"
+        url: `${process.env.GATSBY_GRAPHCMS_API}`
       },
     },
     {
