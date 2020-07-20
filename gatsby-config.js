@@ -7,6 +7,8 @@ module.exports = {
     title: `Hera Skate`,
     description: `NGO in Berlin-Neukölln - Womxn’s skate and art sessions`,
     author: `@heraskate`,
+    image: "/images/icon.jpg",
+    url: "https://www.heraskate.com"
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
