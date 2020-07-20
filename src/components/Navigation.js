@@ -1,10 +1,13 @@
-import React, { useState } from "react"
-import styled from 'styled-components';
-import { Link, useStaticQuery, graphql } from "gatsby"
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import { useMediaQuery } from 'react-responsive'
 
 import Logo from './Logo'
-import { device } from '../utils/device';
+import Close from '../images/close.png';
+import Menu from '../images/menu.png'
+import { device } from '../utils/device'
+
 
 const NavContainer = styled.nav`
   position: fixed;  
@@ -13,10 +16,15 @@ const NavContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
   height: 2.5rem;
-  padding: 0.5rem 2rem;
   background-color: white;
   z-index: 20;
-  width: calc(100% - 4rem);
+  padding: 0.5rem 1rem;
+  width: calc(100% - 2rem);
+
+  @media ${device.tablet} {
+    padding: 0.5rem 2rem;
+    width: calc(100% - 4rem);
+  }
 `
 
 const NavWrapper = styled.div`
@@ -59,6 +67,11 @@ const LinkItem = styled(Link)`
 const Button = styled.div`
   text-align: right;
   display: block;
+  cursor: pointer;
+
+  & > img {
+    width: 1.5rem;
+  }
 
   @media ${device.tablet} {
     display: none;
@@ -86,12 +99,14 @@ const Navigation = () => {
 
   return (
     <NavContainer>
-      <LogoWrapper to="/">
+      <LogoWrapper to='/'>
         <Logo />
       </LogoWrapper>
       <NavWrapper isOpen={isOpen}>
         <Button onClick={handleToggle}>
-          {isOpen ? 'close' : 'menu'}
+          {isOpen ?
+            <img src={Close} alt='close' />
+            : <img src={Menu} alt='menu' />}
         </Button>
         {isTabletOrMobile ?
           isOpen && navData.hera.navigationItems.map(navItem =>

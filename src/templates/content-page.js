@@ -8,8 +8,12 @@ import { device } from '../utils/device';
 
 const ContentWrapper = styled.div`
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 3rem 0.5rem;
   max-width: 50rem;
+
+  @media ${device.tablet} {
+    padding: 4rem 2rem;
+  }
 `
 
 const Header = styled.img`
@@ -21,7 +25,8 @@ const Header = styled.img`
 `
 
 const Content = styled.div`
-  margin-top: 4rem;
+  margin-top: 2rem;
+  font-size: 0.8rem;
   
     & > img {
       width: 100%;
@@ -32,6 +37,11 @@ const Content = styled.div`
       width: 100%;
       height: 100%;
     }
+
+  @media ${device.tablet} {
+    margin-top: 4rem;
+    font-size: 1rem;
+  }
 `
 
 const ContentPage = ({ pageContext }) => {

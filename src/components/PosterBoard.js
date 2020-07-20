@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { device } from '../utils/device';
-import GrassImage from '../images/grass.png';
 
 
 const BoardContainer = styled.div`
@@ -63,11 +62,6 @@ const LegContainer = styled.div`
   justify-content: space-between;
 `
 
-const LegWrapper = styled.div`
-  display: flex;
-  align-items: flex-end;
-`
-
 const Leg = styled.div`
   background-color: white;
   height: 7rem;
@@ -75,12 +69,6 @@ const Leg = styled.div`
   border: 2px black solid;
 `
 
-const Grass = styled.img`
-  transform: ${props => props.flip ? `rotateY(180deg)` : ''}; 
-  z-index: 100;
-  height: 7rem;
-  width: 2rem;
-`
 
 const PosterBoard = ({ images }) => (
   <BoardContainer>
@@ -92,14 +80,8 @@ const PosterBoard = ({ images }) => (
       }
     </Board>
     <LegContainer>
-      <LegWrapper>
-        <Leg />
-        <Grass src={GrassImage} />
-      </LegWrapper>
-      <LegWrapper>
-        <Grass flip src={GrassImage} />
-        <Leg />
-      </LegWrapper>
+      <Leg />
+      <Leg />
     </LegContainer>
   </BoardContainer>
 )

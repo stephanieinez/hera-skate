@@ -1,13 +1,16 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import { useMediaQuery } from 'react-responsive'
 
-import Layout from "../components/Layout"
-import PosterBoard from "../components/PosterBoard"
-import SpecialEvent from "../components/SpecialEvent"
+import Layout from '../components/Layout'
+import PosterBoard from '../components/PosterBoard'
+import SpecialEvent from '../components/SpecialEvent'
 import Flower from '../components/Flower'
-import SEO from "../components/seo"
+import SEO from '../components/seo'
 
 const IndexPage = () => {
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 600px)' })
+
   const homepageData = useStaticQuery(graphql`
     query {
       hera {
@@ -28,13 +31,13 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title='Home' />
       <PosterBoard images={homepageData.hera.homepageImages} />
       {
         homepageData.hera.homepageSpecialEvents.length ?
           <SpecialEvent image={homepageData.hera.homepageSpecialEvents[0].specialImage.url} url={homepageData.hera.homepageSpecialEvents[0].specialEventUrl} /> : null
       }
-      <Flower bottom large />
+      {!isTabletOrMobile ? <Flower bottom large /> : null}
       <Flower right top />
     </Layout>
   )

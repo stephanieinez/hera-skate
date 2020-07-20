@@ -1,6 +1,8 @@
-import React from "react"
+import React from 'react'
 import styled from 'styled-components';
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from 'gatsby'
+
+import { device } from '../utils/device'
 
 
 const FooterContainer = styled.footer`
@@ -9,9 +11,15 @@ const FooterContainer = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  width: calc(100% - 4rem);
+  padding: 1rem;
+  width: calc(100% - 2rem);
   background-color: white;
+  z-index: 20;
+
+  @media ${device.tablet} {
+    padding: 1rem 2rem;
+    width: calc(100% - 4rem);
+  }
 `
 
 const IconWrapper = styled.div`
@@ -21,7 +29,9 @@ const IconWrapper = styled.div`
 `
 
 const FooterItem = styled.a`
-  width: 4rem;
+  @media ${device.tablet} {
+    width: 4rem;
+  } 
 `
 
 const FooterImage = styled.div`
@@ -29,8 +39,13 @@ const FooterImage = styled.div`
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  width: 4rem;
-  height: 2rem;
+  width: 3rem;
+  height: 1.5rem;
+
+  @media ${device.tablet} {
+    width: 4rem;
+    height: 2rem;
+  }
 
   &:hover {
     margin-bottom: 0.625rem;
@@ -40,7 +55,7 @@ const FooterImage = styled.div`
 `
 
 const Text = styled.p`
-font-size: 0.6rem;
+  font-size: 0.6rem;
 `
 
 const Footer = () => {
