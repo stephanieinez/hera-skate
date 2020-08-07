@@ -33,12 +33,13 @@ const Board = styled.div`
 
 const BoardImage = styled.div`
   background-image: url(${props => props.src});
-  background-size: cover;
+  background-size: contain;
   background-position: center;
-  border-top-left-radius: 16rem 1rem;
+  background-repeat: no-repeat;
+  border-top-left-radius: 6rem 1rem;
   border-top-right-radius: 1rem 14rem;
   border-bottom-right-radius: 14rem 1rem;
-  border-bottom-left-radius: 1rem 16rem;
+  border-bottom-left-radius: 1rem 6rem;
   height: 100%;
   width: 50%;
     
